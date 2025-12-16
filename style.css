@@ -1,0 +1,144 @@
+/* GLOBAL STYLES */
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body {
+    background-color: #050505; color: #e0e0e0; font-family: 'Lato', sans-serif;
+    cursor: url('cursor.png'), auto; /* YOUR HAND CURSOR */
+    overflow-x: hidden;
+}
+a, button, .card, .timeline-item { cursor: url('cursor.png'), pointer; }
+
+/* NAV BAR */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 50px; background-color: #000; border-bottom: 2px solid #333;
+}
+.logo { font-family: 'Cinzel', serif; font-size: 1.5rem; color: #9b59b6; font-weight: bold; }
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { text-decoration: none; color: #fff; font-family: 'Cinzel', serif; transition: 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: #9b59b6; }
+.reg-btn { background: #9b59b6; padding: 8px 15px; border-radius: 4px; color: #fff !important; }
+
+/* SECTIONS */
+.container { padding: 60px 10%; }
+.title { font-family: 'Cinzel', serif; color: #9b59b6; text-align: center; font-size: 3rem; margin-bottom: 40px; }
+.subtitle { text-align: center; color: #ccc; margin-bottom: 60px; font-style: italic; }
+
+/* --- PAGE 1: HOME --- */
+.hero-split { display: flex; align-items: center; justify-content: center; gap: 50px; min-height: 80vh; }
+.hero-text { flex: 1; }
+.hero-text h1 { font-size: 4rem; font-family: 'Cinzel', serif; color: #fff; }
+.hero-text span { color: #9b59b6; }
+.hero-img { flex: 1; text-align: center; }
+.hero-img img { max-width: 100%; border-radius: 10px; border: 2px solid #9b59b6; box-shadow: 0 0 20px rgba(155,89,182,0.3); }
+
+.notification-box {
+    background: #1a1a1a; border-left: 5px solid #9b59b6; padding: 20px; margin: 20px 0;
+    font-family: 'Courier New', monospace;
+}
+
+/* --- PAGE 2: ORGANIZERS --- */
+.org-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.org-card { background: #111; border: 1px solid #333; padding: 20px; text-align: center; border-radius: 8px; transition: 0.3s; }
+.org-card:hover { transform: translateY(-10px); border-color: #9b59b6; }
+.org-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 2px solid #555; }
+.role-badge { background: #9b59b6; color: #fff; padding: 5px 10px; font-size: 0.8rem; border-radius: 20px; }
+
+/* --- PAGE 3: TIMELINE & ANIMATION --- */
+/* The Moving Road Animation */
+.road-container {
+    width: 100%; height: 250px; position: relative; overflow: hidden;
+    background: #222; border-top: 2px solid #fff; border-bottom: 2px solid #fff;
+    margin-bottom: 50px;
+    background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+.road-stripes {
+    position: absolute; top: 50%; left: 0; width: 200%; height: 10px;
+    background: repeating-linear-gradient(90deg, #fff 0, #fff 50px, transparent 50px, transparent 100px);
+    margin-top: -5px;
+    animation: moveRoad 2s linear infinite;
+}
+.car-element {
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    width: 200px; z-index: 10;
+}
+@keyframes moveRoad { 100% { transform: translateX(-100px); } }
+
+/* Vertical Timeline */
+.timeline { position: relative; max-width: 800px; margin: 0 auto; border-left: 2px solid #9b59b6; padding-left: 30px; }
+.timeline-item { position: relative; margin-bottom: 40px; background: #111; padding: 20px; border-radius: 8px; border: 1px solid #333; }
+.timeline-item::before {
+    content: ''; position: absolute; left: -39px; top: 20px; width: 16px; height: 16px;
+    background: #9b59b6; border-radius: 50%; border: 4px solid #000;
+}
+
+/* --- PAGE 4: RULES --- */
+.rules-split { display: flex; flex-wrap: wrap; gap: 40px; }
+.rules-content { flex: 2; }
+.monster-img { flex: 1; }
+.monster-img img { width: 100%; border-radius: 10px; opacity: 0.8; }
+.rule-item { margin-bottom: 15px; padding: 15px; background: #111; border-left: 3px solid #9b59b6; }
+
+body {
+    /* Set the new image as the background */
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('wednesday_bg.jpg');
+    
+    /* Make it cover the whole screen and stay fixed when scrolling */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
+    color: #e0e0e0;
+    font-family: 'Lato', sans-serif;
+    
+    /* Your Custom Hand Cursor */
+    cursor: url('cursor.png'), auto; 
+    overflow-x: hidden;
+}
+
+/* --- BOMB COUNTDOWN STYLES --- */
+.bomb-container {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #ff4444; /* Red border for danger */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: fit-content;
+}
+
+.bomb-icon {
+    width: 60px;
+    height: auto;
+    margin-right: 20px;
+    /* This makes the bomb "tick" (pulse) */
+    animation: tick-tock 1s infinite;
+}
+
+.bomb-text {
+    font-family: 'Courier New', monospace;
+}
+
+.warning-text {
+    color: #ff4444; /* Red color */
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.timer-numbers {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff4444;
+}
+
+/* Ticking Animation Keyframes */
+@keyframes tick-tock {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); } /* Grow slightly */
+    100% { transform: scale(1); }
+}

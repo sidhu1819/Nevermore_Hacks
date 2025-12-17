@@ -2,42 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nevermore Hacks | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminex 2026</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lato&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">Nevermore Hacks</div>
+        <div class="logo">LUMINEX</div>
         <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="organizers.html">Faculty & Team</a></li>
-            <li><a href="timeline.html">Event Flow</a></li>
-            <li><a href="rules.html">Rules</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="timeline.html">Schedule</a></li>
+            <li><a href="organizers.html">Team</a></li>
+            <li><a href="rules.html">Info</a></li>
             <li><a href="https://forms.gle/1NQyPP5qV4VjPodw8" class="reg-btn">Register</a></li>
         </ul>
     </nav>
 
-    <div class="container hero-split">
-        <div class="hero-text">
-            <h1>Theme:<br><span>Data Science & ML</span></h1>
-            <p style="font-size: 1.2rem; margin: 20px 0;">
-                "I don't believe in mandatory volunteer work... I believe in code."
-            </p>
-            
-            <div class="notification-box">
-                <h3>Raven's Scroll (Notices)</h3>
-                <p>🔴 <strong>Registrations Close:</strong> 27th, 12:00 PM (Midnight)</p>
-                <p>📅 <strong>Hackathon Dates:</strong> 29th & 30th</p>
-                <p>📍 <strong>Venue:</strong> The Quad (Main Hall)</p>
-            </div>
-        </div>
+    <section class="hero">
+        <h1 style="margin-bottom: 10px;">LUMINEX<br><span>2026</span></h1>
         
-        <div class="hero-img">
-            <img src="wednesday_main.jpg" alt="Wednesday Addams">
+        <h2 style="color: #e0e0e0; font-family: 'Orbitron', sans-serif; font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 10px;">
+            THEME: <span style="color: var(--secondary); text-shadow:none;">DATA SCIENCE & ML</span>
+        </h2>
+        
+        <p style="color: #aaa; margin-bottom: 30px;">Innovate. Model. Deploy.</p>
+        
+        <div style="background: rgba(255, 0, 80, 0.1); border: 1px solid #ff0050; padding: 10px 20px; border-radius: 5px; margin-bottom: 20px;">
+            <p style="color: #ff0050; font-weight: bold; font-family: 'Orbitron'; letter-spacing: 1px;">
+                ⚠ REGISTRATION CLOSES: DECEMBER 27TH
+            </p>
         </div>
-    </div>
 
+        <div class="timer-box">
+            <div class="time-unit"><span id="d">00</span>Days</div>
+            <div class="time-unit"><span id="h">00</span>Hours</div>
+            <div class="time-unit"><span id="m">00</span>Mins</div>
+            <div class="time-unit"><span id="s">00</span>Secs</div>
+        </div>
+
+        <a href="timeline.html" class="reg-btn">View Phases</a>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    /* --- 1. NAV LOGO ANIMATION (Wavy Levitation) --- */
+    /* --- 1. NAV LOGO ANIMATION --- */
     const logo = document.querySelector(".logo");
     if (logo) {
         const text = logo.innerText;
@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
         for (let i = 0; i < text.length; i++) {
             const span = document.createElement("span");
             span.innerText = text[i];
-            // Stagger delay for wave effect
             span.style.animationDelay = `${i * 0.1}s`;
             logo.appendChild(span);
         }
@@ -22,26 +21,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
         heroWords.forEach(word => {
             const text = word.innerText;
-            word.innerHTML = ""; // Clear text to replace with spans
+            word.innerHTML = ""; 
 
             for (let i = 0; i < text.length; i++) {
                 const span = document.createElement("span");
                 span.classList.add("hero-char");
                 span.innerText = text[i];
                 
-                // A. ENTRY ACTION: Staggered fly-in
+                // Entry Action
                 span.style.animationDelay = `${charCount * 0.05}s`;
                 span.classList.add("animate-entrance");
 
-                // B. CLICK ACTION: THE GHOST SPLIT
+                // Click Action
                 span.addEventListener("click", function() {
-                    // 1. Remove class to reset animation
                     span.classList.remove("animate-click");
-                    
-                    // 2. Trigger Reflow (Allows restarting animation instantly)
-                    void span.offsetWidth; 
-                    
-                    // 3. Add class to start "Split" animation
+                    void span.offsetWidth; // Trigger reflow
                     span.classList.add("animate-click");
                 });
 
@@ -52,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-/* --- 3. COUNTDOWN TIMER (Dec 27, 2025) --- */
+/* --- 3. COUNTDOWN TIMER --- */
 var countDownDate = new Date("Dec 27, 2025 23:59:59").getTime();
 
 var x = setInterval(function() {
@@ -64,7 +58,6 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Update HTML elements if they exist
   if(document.getElementById("d")) {
       document.getElementById("d").innerText = days < 10 ? '0'+days : days;
       document.getElementById("h").innerText = hours < 10 ? '0'+hours : hours;
@@ -72,7 +65,6 @@ var x = setInterval(function() {
       document.getElementById("s").innerText = seconds < 10 ? '0'+seconds : seconds;
   }
 
-  // When countdown ends
   if (distance < 0) {
     clearInterval(x);
     if(document.querySelector(".timer-box")) {

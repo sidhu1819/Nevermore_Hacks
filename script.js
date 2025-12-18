@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    /* --- 1. NAV LOGO ANIMATION --- */
+    /* --- 1. NAV LOGO ANIMATION (Still keeps the wave effect, no disappearing) --- */
     const logo = document.querySelector(".logo");
     if (logo) {
         const text = logo.innerText;
@@ -8,12 +8,13 @@ document.addEventListener("DOMContentLoaded", function() {
         for (let i = 0; i < text.length; i++) {
             const span = document.createElement("span");
             span.innerText = text[i];
+            span.style.animation = `floatWave 2s ease-in-out infinite`;
             span.style.animationDelay = `${i * 0.1}s`;
             logo.appendChild(span);
         }
     }
 
-    /* --- 2. HERO TITLE ACTIONS (Entry & Split Click) --- */
+    /* --- 2. HERO TITLE ACTIONS (Entry Only - Removed Click Disappearance) --- */
     const heroWords = document.querySelectorAll(".hero-word");
     
     if (heroWords.length > 0) {
@@ -28,16 +29,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 span.classList.add("hero-char");
                 span.innerText = text[i];
                 
-                // Entry Action
+                // Entry Action Only
                 span.style.animationDelay = `${charCount * 0.05}s`;
                 span.classList.add("animate-entrance");
 
-                // Click Action
-                span.addEventListener("click", function() {
-                    span.classList.remove("animate-click");
-                    void span.offsetWidth; // Trigger reflow
-                    span.classList.add("animate-click");
-                });
+                // Removed the "click" event listener here that caused disappearance
 
                 word.appendChild(span);
                 charCount++;

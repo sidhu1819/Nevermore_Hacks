@@ -285,6 +285,7 @@
         <p style="color: #aaa; margin-bottom: 30px;">Innovate. Model. Deploy.</p>
     </section>
 
+    <!-- PHASE 2 STATUS SECTION -->
     <section id="kickoff" class="container">
         <h1 class="title">Live Status</h1>
 
@@ -303,26 +304,62 @@
         <div style="border: 1px solid var(--red-accent); background: rgba(255, 0, 0, 0.05); border-radius: 15px; padding: 30px; position: relative; overflow: hidden;">
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--red-accent); box-shadow: 0 0 20px var(--red-accent);"></div>
 
+            <!-- TITLE UPDATED FOR REVIEW 2 -->
             <h2 style="text-align:center; color: var(--red-accent); font-family: 'Orbitron'; font-size: 2rem; margin-bottom: 10px; text-transform: uppercase;">
                 ⚠️ Review 2 Deadline
             </h2>
-            <p style="text-align:center; color: #ccc; font-size: 1.1rem; margin-bottom: 20px;">
+            <p style="text-align:center; color: #ccc; font-size: 1.1rem; margin-bottom: 30px;">
                 Target: <strong>9:00 PM (21:00)</strong> | Phase 2 Completion
             </p>
 
-            <div class="timer-box" style="justify-content:center; margin: 20px 0;">
-                <div class="time-unit" style="border-color: var(--red-accent); color: var(--red-accent);">
-                    <span id="rev-h" style="color: var(--red-accent);">00</span>Hours
+            <!-- FLEX CONTAINER FOR TIMER & REQUIREMENTS -->
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; align-items: flex-start;">
+                
+                <!-- TIMER SIDE -->
+                <div style="flex: 1; min-width: 300px; text-align: center; padding-top: 20px;">
+                    <h3 style="color: #fff; font-family: 'Orbitron'; margin-bottom: 15px;">Time Remaining</h3>
+                    <div class="timer-box" style="justify-content:center; margin: 0;">
+                        <div class="time-unit" style="border-color: var(--red-accent); color: var(--red-accent);">
+                            <span id="rev-h" style="color: var(--red-accent);">00</span>Hours
+                        </div>
+                        <div class="time-unit" style="border-color: var(--red-accent); color: var(--red-accent);">
+                            <span id="rev-m" style="color: var(--red-accent);">00</span>Mins
+                        </div>
+                        <div class="time-unit" style="border-color: var(--red-accent); color: var(--red-accent);">
+                            <span id="rev-s" style="color: var(--red-accent);">00</span>Secs
+                        </div>
+                    </div>
                 </div>
-                <div class="time-unit" style="border-color: var(--red-accent); color: var(--red-accent);">
-                    <span id="rev-m" style="color: var(--red-accent);">00</span>Mins
+
+                <!-- REQUIREMENTS SIDE -->
+                <div style="flex: 1.2; min-width: 320px; background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 10px; border-left: 3px solid var(--primary);">
+                    <h3 style="color: var(--primary); font-family: 'Orbitron'; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; font-size: 1.2rem;">Phase 2: Data Foundations</h3>
+                    <ul style="color: #ddd; list-style: none; padding: 0; line-height: 1.5; text-align: left; font-size: 0.95rem;">
+                        <li style="margin-bottom: 15px;">
+                            <strong style="color: #fff; font-size: 1rem; display:block; margin-bottom:5px;">1. Data Collection</strong>
+                            <span style="color: #aaa;">(Public Datasets / Live API Pulling)</span>
+                            <ul style="list-style: none; padding-left: 10px; margin-top: 8px; border-left: 2px solid rgba(255,255,255,0.1);">
+                                <li style="margin-bottom: 5px;">📄 <strong>API Users:</strong> Submit the script/code used to pull data (PDF Format).</li>
+                                <li style="margin-bottom: 5px;">🔗 <strong>Dataset Users:</strong> Provide the link (No file upload needed).</li>
+                                <li style="color: #ff5e00; margin-top: 8px; background: rgba(255, 94, 0, 0.1); padding: 5px; border-radius: 4px;">
+                                    <strong>🚫 Warning:</strong> Do not use synthetic data. Real-world data only.
+                                </li>
+                            </ul>
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <strong style="color: #fff; font-size: 1rem;">2. Data Preprocessing & EDA</strong><br>
+                            <span style="color: #aaa;">(Exploratory Data Analysis)</span>
+                        </li>
+                        <li>
+                            <strong style="color: #fff; font-size: 1rem;">3. Data Visualizations</strong>
+                        </li>
+                    </ul>
                 </div>
-                <div class="time-unit" style="border-color: var(--red-accent); color: var(--red-accent);">
-                    <span id="rev-s" style="color: var(--red-accent);">00</span>Secs
-                </div>
+
             </div>
 
-            <div style="text-align: center; margin-top: 30px;">
+            <!-- BUTTON CONTAINER -->
+            <div style="text-align: center; margin-top: 40px;">
                 <a id="review-btn" href="https://forms.gle/fLkTV8xTtWD6ka5h6" target="_blank" class="reg-btn" style="background: linear-gradient(90deg, #ff0000, #ff5e00); box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); padding: 15px 40px; font-size: 1.1rem; text-decoration: none; transition: 0.3s all;">
                     Submit Review 2
                 </a>

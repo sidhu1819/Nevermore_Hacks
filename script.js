@@ -43,28 +43,29 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /* --- 3. COUNTDOWN TIMER --- */
-var countDownDate = new Date("Dec 27, 2025 23:59:59").getTime();
+/* --- KICKOFF COUNTDOWN TIMER --- */
+var kickoffDate = new Date("Dec 29, 2025 09:00:00").getTime();
 
-var x = setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
+var countdownInterval = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = kickoffDate - now;
 
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if (distance > 0) {
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  if(document.getElementById("d")) {
-      document.getElementById("d").innerText = days < 10 ? '0'+days : days;
-      document.getElementById("h").innerText = hours < 10 ? '0'+hours : hours;
-      document.getElementById("m").innerText = minutes < 10 ? '0'+minutes : minutes;
-      document.getElementById("s").innerText = seconds < 10 ? '0'+seconds : seconds;
-  }
-
-  if (distance < 0) {
-    clearInterval(x);
-    if(document.querySelector(".timer-box")) {
-        document.querySelector(".timer-box").innerHTML = "<h2 style='color:#ff0050'>REGISTRATION CLOSED</h2>";
+        document.getElementById("d").innerText = days.toString().padStart(2, '0');
+        document.getElementById("h").innerText = hours.toString().padStart(2, '0');
+        document.getElementById("m").innerText = minutes.toString().padStart(2, '0');
+        document.getElementById("s").innerText = seconds.toString().padStart(2, '0');
+    } else {
+        clearInterval(countdownInterval);
+        document.querySelector(".timer-box").innerHTML = `
+            <h2 style="color: var(--primary); font-family: 'Orbitron'; letter-spacing: 2px;">
+                🚀 HACKATHON KICKOFF 🚀
+            </h2>
+        `;
     }
-  }
 }, 1000);

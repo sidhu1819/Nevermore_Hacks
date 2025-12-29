@@ -42,15 +42,12 @@
             position: sticky; top: 0; z-index: 1000;
         }
 
-        /* Brand Container for Logos + Text */
-        /* PC Version: Increased Gap */
         .brand-container {
             display: flex;
             align-items: center;
-            gap: 40px; /* Increased distance for PC */
+            gap: 40px; 
         }
 
-        /* Logos */
         .nav-logo {
             height: 80px;
             width: auto;
@@ -69,23 +66,11 @@
             cursor: default;
         }
 
-        /* --- LOGO ANIMATION (Stationary Tech Glow) --- */
-        /* Span must be inline-block for animation to apply correctly */
-        .logo span {
-            display: inline-block;
-        }
+        .logo span { display: inline-block; }
 
         @keyframes techGlow {
-            0%, 100% {
-                color: #fff;
-                text-shadow: 0 0 5px var(--primary);
-                transform: scale(1); /* No Movement */
-            }
-            50% {
-                color: var(--primary);
-                text-shadow: 0 0 20px var(--primary), 0 0 35px var(--secondary);
-                transform: scale(1); /* No Movement */
-            }
+            0%, 100% { color: #fff; text-shadow: 0 0 5px var(--primary); transform: scale(1); }
+            50% { color: var(--primary); text-shadow: 0 0 20px var(--primary), 0 0 35px var(--secondary); transform: scale(1); }
         }
 
         .nav-links { list-style: none; display: flex; gap: 30px; align-items: center; }
@@ -102,7 +87,6 @@
             white-space: nowrap; 
         }
 
-        /* Mobile Hamburger */
         .mobile-toggle {
             display: none;
             font-size: 1.8rem;
@@ -124,39 +108,33 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            min-height: 100vh; /* Full viewport height */
+            min-height: 100vh;
             display: flex; flex-direction: column; 
             justify-content: center; align-items: center; text-align: center;
             background: radial-gradient(circle at center, rgba(0, 242, 255, 0.05), transparent 70%);
             padding: 20px;
-            padding-top: 100px; /* Offset for nav */
+            padding-top: 100px;
         }
 
-        /* SPIRIT 2K26 - Orange to Red Gradient & Big */
         .presents-text {
             font-family: 'Orbitron', sans-serif;
-            font-size: 5rem; /* Very Large */
+            font-size: 5rem;
             font-weight: 900;
             letter-spacing: 5px;
             margin-bottom: 0px;
             text-transform: uppercase;
             line-height: 1.1;
-
-            /* Gradient Text */
-            background: linear-gradient(90deg, #ff8c00, #ff0000); /* Orange to Red */
+            background: linear-gradient(90deg, #ff8c00, #ff0000);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: #ff4500; /* Fallback */
-
-            /* Drop shadow used instead of text-shadow for transparent text */
+            color: #ff4500;
             filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.6));
         }
 
-        /* MAIN HERO TITLE */
         .hero-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 5rem; /* Matching Size */
+            font-size: 5rem;
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 20px;
@@ -167,13 +145,8 @@
             align-items: center;
         }
 
-        /* Spacer for Luminex and 2K26 */
-        .title-spacer {
-            display: inline-block;
-            width: 40px; 
-        }
+        .title-spacer { display: inline-block; width: 40px; }
 
-        /* Date Text Style */
         .date-text {
             font-family: 'Orbitron', sans-serif;
             font-size: 2.2rem;
@@ -184,7 +157,6 @@
             margin-bottom: 30px;
         }
 
-        /* Animation Classes */
         .hero-char {
             display: inline-block; opacity: 0;
             will-change: transform, text-shadow, color, opacity;
@@ -198,7 +170,7 @@
         .animate-entrance { animation: heroEntrance 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
 
         /* Timer */
-        .timer-box { display: flex; gap: 20px; margin: 40px 0; flex-wrap: wrap; justify-content: center; }
+        .timer-box { display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap; justify-content: center; }
         .time-unit {
             background: var(--glass); border: 1px solid var(--border);
             padding: 15px 25px; border-radius: 8px; text-align: center;
@@ -241,42 +213,19 @@
         @media (max-width: 768px) {
             body { background-attachment: scroll; }
             
-            /* Navbar Mobile Styles */
-            .navbar {
-                flex-wrap: wrap; 
-                padding: 15px; 
-            }
-            
-            /* Container for logos/text on mobile */
-            /* Mobile Version: Small Gap preserved */
-            .brand-container {
-                gap: 8px;
-            }
-
-            /* Increased logo size on mobile */
+            .navbar { flex-wrap: wrap; padding: 15px; }
+            .brand-container { gap: 8px; }
             .nav-logo { height: 65px; } 
-            
             .logo { font-size: 1.2rem; margin: 0; letter-spacing: 1px; }
 
-            /* Hide links by default on mobile */
             .nav-links { 
-                display: none; 
-                width: 100%; 
-                flex-direction: column; 
-                align-items: center; 
-                gap: 20px; 
-                margin-top: 20px;
-                padding-top: 20px;
-                border-top: 1px solid var(--border);
+                display: none; width: 100%; flex-direction: column; 
+                align-items: center; gap: 20px; margin-top: 20px;
+                padding-top: 20px; border-top: 1px solid var(--border);
             }
-            
-            /* Class to show links when toggled */
             .nav-links.active { display: flex; }
-
-            /* Show Hamburger */
             .mobile-toggle { display: block; }
 
-            /* Font Size Adjustments for Mobile */
             .presents-text { font-size: 2.5rem; letter-spacing: 2px; }
             .hero-title { font-size: 2.8rem; white-space: normal; flex-direction: column; }
             .title-spacer { display: none; }
@@ -293,48 +242,40 @@
 <body>
 
     <nav class="navbar">
-        <!-- Brand Container: Keeps Logo-Text-Logo together -->
         <div class="brand-container">
             <img src="logo 1.png" alt="Logo" class="nav-logo">
             <div class="logo">LUMINEX</div>
             <img src="logo 2.jpg" alt="Logo" class="nav-logo">
         </div>
         
-        <!-- Hamburger Menu Icon (Visible only on Mobile) -->
         <div class="mobile-toggle" onclick="toggleMenu()">
             ☰
         </div>
 
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
+            <li><a href="#kickoff">Status</a></li>
             <li><a href="#schedule">Schedule</a></li>
             <li><a href="#team">Team</a></li>
             <li><a href="#info">Info</a></li>
-            <li><a href="https://forms.gle/1NQyPP5qV4VjPodw8" class="reg-btn">Register</a></li>
-        </ul>
+            </ul>
     </nav>
 
-    <!-- HERO SECTION -->
     <section id="home" class="hero">
-        
-        <!-- 1. SPIRIT 2K26 - Orange/Red Gradient -->
         <h1 class="presents-text">SPIRIT 2K26</h1>
         
-        <!-- Added Department Name -->
         <h3 style="color: var(--primary); font-family: 'Orbitron'; font-size: 1.5rem; letter-spacing: 1px; margin-bottom: 5px; text-transform: uppercase; text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);">
             Department of CSE (Data Science)
         </h3>
 
         <h3 style="color: #aaa; letter-spacing: 4px; margin-bottom: 10px; font-family: 'Orbitron'; font-size: 1.2rem;">PRESENTS</h3>
 
-        <!-- 2. LUMINEX 2K26 - Single Line with Space -->
         <h1 class="hero-title">
             <span class="hero-word">LUMINEX</span>
             <span class="title-spacer"></span>
             <span class="hero-word">2K26</span>
         </h1>
 
-        <!-- 3. Date Below Title - Updated with Month and Year -->
         <h2 class="date-text">HACKATHON ON 29, 30, 31 DEC 2025</h2>
         
         <h2 style="color: #e0e0e0; font-family: 'Orbitron', sans-serif; font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 10px; margin-top: 10px;">
@@ -342,90 +283,87 @@
         </h2>
         
         <p style="color: #aaa; margin-bottom: 30px;">Innovate. Model. Deploy.</p>
-        
-        <div style="background: rgba(255, 0, 80, 0.1); border: 1px solid #ff0050; padding: 10px 20px; border-radius: 5px; margin-bottom: 20px;">
-            <p style="color: #ff0050; font-weight: bold; font-family: 'Orbitron'; letter-spacing: 1px; font-size: 0.9rem;">
-                ⚠ REGISTRATION CLOSES: DEC 27TH
-            </p>
-        </div>
-
-        <div class="timer-box">
-            <div class="time-unit"><span id="d">00</span>Days</div>
-            <div class="time-unit"><span id="h">00</span>Hours</div>
-            <div class="time-unit"><span id="m">00</span>Mins</div>
-            <div class="time-unit"><span id="s">00</span>Secs</div>
-        </div>
-
-        <!-- Replaced "View Phases" with "Register Now" -->
-        <a href="https://forms.gle/1NQyPP5qV4VjPodw8" class="reg-btn">Register Now</a>
     </section>
-    <!-- THEMES SECTION -->
-<section id="themes" class="container">
-    <h1 class="title">Hackathon Themes</h1>
 
-    <div class="grid">
+    <section id="kickoff" class="container">
+        <h1 class="title">Live Status</h1>
 
-        <div class="card">
-            <h3>Bring Your Own Problem Statement</h3>
-            <p style="color:#888;">
-                Any real-world problem that can be solved using
-                Data Science or Machine Learning.
-            </p>
+        <div style="margin-bottom: 50px;">
+            <h2 style="text-align:center; color: var(--primary); font-family: 'Orbitron'; font-size: 1.8rem; text-shadow: 0 0 10px rgba(0,242,255,0.3);">
+                Hacking Time Elapsed
+            </h2>
+            <div class="timer-box" style="justify-content:center;">
+                <div class="time-unit"><span id="elapsed-d">00</span>Days</div>
+                <div class="time-unit"><span id="elapsed-h">00</span>Hours</div>
+                <div class="time-unit"><span id="elapsed-m">00</span>Mins</div>
+                <div class="time-unit"><span id="elapsed-s">00</span>Secs</div>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>Recommendation Systems</h3>
-            <p style="color:#888;">
-                Movie, product, course, music, job or content
-                recommendation using ML.
+        <div style="border: 1px solid var(--red-accent); background: rgba(255, 0, 0, 0.05); border-radius: 15px; padding: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--red-accent); box-shadow: 0 0 20px var(--red-accent);"></div>
+
+            <h2 style="text-align:center; color: var(--red-accent); font-family: 'Orbitron'; font-size: 2rem; margin-bottom: 10px; text-transform: uppercase;">
+                ⚠️ Review 1 Deadline
+            </h2>
+            <p style="text-align:center; color: #ccc; font-size: 1.1rem; margin-bottom: 20px;">
+                Target: <strong>1:30 PM (13:30)</strong> | Phase 1 & 2 Completion
             </p>
+
+            <div class="timer-box" style="justify-content:center; margin: 20px 0;">
+                <div class="time-unit" style="border-color: var(--red-accent); color: var(--red-accent);">
+                    <span id="rev-h" style="color: var(--red-accent);">00</span>Hours
+                </div>
+                <div class="time-unit" style="border-color: var(--red-accent); color: var(--red-accent);">
+                    <span id="rev-m" style="color: var(--red-accent);">00</span>Mins
+                </div>
+                <div class="time-unit" style="border-color: var(--red-accent); color: var(--red-accent);">
+                    <span id="rev-s" style="color: var(--red-accent);">00</span>Secs
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://forms.gle/YOUR_REVIEW_FORM_LINK" target="_blank" class="reg-btn" style="background: linear-gradient(90deg, #ff0000, #ff5e00); box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); padding: 15px 40px; font-size: 1.1rem; text-decoration: none;">
+                    📤 Submit Review 1
+                </a>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-            <h3>Stock Market & Financial Analytics</h3>
-            <p style="color:#888;">
-                Price prediction, trend analysis, risk assessment
-                and fraud detection.
-            </p>
+    <section id="themes" class="container">
+        <h1 class="title">Hackathon Themes</h1>
+        <div class="grid">
+            <div class="card">
+                <h3>Bring Your Own Problem Statement</h3>
+                <p style="color:#888;">Any real-world problem that can be solved using Data Science or Machine Learning.</p>
+            </div>
+            <div class="card">
+                <h3>Recommendation Systems</h3>
+                <p style="color:#888;">Movie, product, course, music, job or content recommendation using ML.</p>
+            </div>
+            <div class="card">
+                <h3>Stock Market & Financial Analytics</h3>
+                <p style="color:#888;">Price prediction, trend analysis, risk assessment and fraud detection.</p>
+            </div>
+            <div class="card">
+                <h3>Healthcare & Medical Data Analysis</h3>
+                <p style="color:#888;">Disease prediction, health monitoring and patient data insights.</p>
+            </div>
+            <div class="card">
+                <h3>Cyber Security & Anomaly Detection</h3>
+                <p style="color:#888;">Intrusion detection, phishing detection and network anomaly analysis.</p>
+            </div>
+            <div class="card">
+                <h3>E-Commerce & Customer Analytics</h3>
+                <p style="color:#888;">Sales forecasting, customer segmentation and churn prediction.</p>
+            </div>
+            <div class="card">
+                <h3>Social Media & NLP Applications</h3>
+                <p style="color:#888;">Sentiment analysis, fake news detection, chatbots and text classification.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-            <h3>Healthcare & Medical Data Analysis</h3>
-            <p style="color:#888;">
-                Disease prediction, health monitoring and
-                patient data insights.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Cyber Security & Anomaly Detection</h3>
-            <p style="color:#888;">
-                Intrusion detection, phishing detection and
-                network anomaly analysis.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>E-Commerce & Customer Analytics</h3>
-            <p style="color:#888;">
-                Sales forecasting, customer segmentation and
-                churn prediction.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Social Media & NLP Applications</h3>
-            <p style="color:#888;">
-                Sentiment analysis, fake news detection,
-                chatbots and text classification.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-
-    <!-- SCHEDULE SECTION -->
     <section id="schedule" class="container">
         <h1 class="title">Project Lifecycle</h1>
         <div class="phase-container">
@@ -479,7 +417,6 @@
         </div>
     </section>
 
-    <!-- TEAM SECTION -->
     <section id="team" class="container">
         <h1 class="title">Leadership</h1>
         <div class="grid" style="margin-bottom: 60px;">
@@ -543,13 +480,11 @@
         </div>
     </section>
 
-    <!-- INFO / RULES SECTION -->
     <section id="info" class="container">
         <h1 class="title">Event Information</h1>
         <div class="grid">
             <div class="card">
                 <h3>📅 Dates</h3>
-                <!-- Added Month and Year to dates -->
                 <p style="color: #aaa; font-size: 1.1rem;">29th & 30th December 2025</p>
                 <p style="font-size: 0.9rem; color: var(--primary);">Two Days</p>
             </div>
@@ -581,7 +516,6 @@
             <div class="card">
                 <h3>You can use ChatGPT</h3>
                 <p style="color: #aaa; font-size: 1.1rem;">You must develop ML Model</p>
-                <p style="font-size: 0.9rem; color: var(--primary);"></p>
             </div>
             <div class="card" style="border-color: #ff0050;">
                 <h3 style="color: #ff0050;">🍔 Food</h3>
@@ -590,7 +524,6 @@
             </div>
             <div class="card" style="border-color: #ff0050;">
                 <h3 style="color: #ff0050;">🏠Accommodation</h3>
-                <p style="color: #aaa; font-size: 1.1rem;"></p>
                 <p style="font-size: 0.9rem; color: #ff0050;">Not Provided</p>
             </div>   
         </div>
@@ -609,7 +542,6 @@
         </div>
     </section>
 
-    <!-- JAVASCRIPT -->
     <script>
         // Toggle Mobile Menu
         function toggleMenu() {
@@ -627,7 +559,6 @@
                 for (let i = 0; i < text.length; i++) {
                     const span = document.createElement("span");
                     span.innerText = text[i];
-                    // Updated Animation: Tech Glow (No Motion)
                     span.style.animation = `techGlow 2.5s ease-in-out infinite`;
                     span.style.animationDelay = `${i * 0.15}s`;
                     logo.appendChild(span);
@@ -649,7 +580,6 @@
                         span.classList.add("hero-char");
                         span.innerText = text[i];
                         
-                        // Entry Action Only
                         span.style.animationDelay = `${charCount * 0.05}s`;
                         span.classList.add("animate-entrance");
 
@@ -659,32 +589,65 @@
                 });
             }
 
-            /* --- 3. COUNTDOWN TIMER --- */
-            var countDownDate = new Date("Dec 27, 2025 23:59:59").getTime();
+            /* --- 3. DUAL TIMERS (ELAPSED & REVIEW) --- */
+            
+            // CONFIGURATION
+            // 1. Start Time: Dec 29, 10:30 AM
+            const startDate = new Date("Dec 29, 2025 10:30:00").getTime();
+            
+            // 2. Review 1 Time: Dec 29, 1:30 PM (13:30)
+            const reviewDate = new Date("Dec 29, 2025 13:30:00").getTime();
 
-            var countdownInterval = setInterval(function() {
-                var now = new Date().getTime();
-                var distance = countDownDate - now;
+            const timerInterval = setInterval(function () {
+                const now = new Date().getTime();
 
-                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                if(document.getElementById("d")) {
-                    document.getElementById("d").innerText = days < 10 ? '0'+days : days;
-                    document.getElementById("h").innerText = hours < 10 ? '0'+hours : hours;
-                    document.getElementById("m").innerText = minutes < 10 ? '0'+minutes : minutes;
-                    document.getElementById("s").innerText = seconds < 10 ? '0'+seconds : seconds;
+                // --- LOGIC 1: ELAPSED TIME (Hacking Time) ---
+                let elapsedDistance = now - startDate;
+                
+                // If event hasn't started yet, show 00
+                if (elapsedDistance < 0) {
+                    elapsedDistance = 0;
                 }
 
-                if (distance < 0) {
-                    clearInterval(countdownInterval);
-                    if(document.querySelector(".timer-box")) {
-                        document.querySelector(".timer-box").innerHTML = "<h2 style='color:#ff0050'>REGISTRATION CLOSED</h2>";
+                const eDays = Math.floor(elapsedDistance / (1000 * 60 * 60 * 24));
+                const eHours = Math.floor((elapsedDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const eMins = Math.floor((elapsedDistance % (1000 * 60 * 60)) / (1000 * 60));
+                const eSecs = Math.floor((elapsedDistance % (1000 * 60)) / 1000);
+
+                // Update DOM for Elapsed
+                const elD = document.getElementById("elapsed-d");
+                if(elD) {
+                    elD.innerText = eDays.toString().padStart(2, '0');
+                    document.getElementById("elapsed-h").innerText = eHours.toString().padStart(2, '0');
+                    document.getElementById("elapsed-m").innerText = eMins.toString().padStart(2, '0');
+                    document.getElementById("elapsed-s").innerText = eSecs.toString().padStart(2, '0');
+                }
+
+                // --- LOGIC 2: REVIEW 1 COUNTDOWN ---
+                const reviewDistance = reviewDate - now;
+
+                if (reviewDistance > 0) {
+                    const rHours = Math.floor((reviewDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const rMins = Math.floor((reviewDistance % (1000 * 60 * 60)) / (1000 * 60));
+                    const rSecs = Math.floor((reviewDistance % (1000 * 60)) / 1000);
+
+                    // Update DOM for Review
+                    const revH = document.getElementById("rev-h");
+                    if(revH) {
+                        revH.innerText = rHours.toString().padStart(2, '0');
+                        document.getElementById("rev-m").innerText = rMins.toString().padStart(2, '0');
+                        document.getElementById("rev-s").innerText = rSecs.toString().padStart(2, '0');
+                    }
+                } else {
+                    // Review time passed
+                    const revH = document.getElementById("rev-h");
+                    if(revH) {
+                        document.getElementById("rev-h").parentElement.parentElement.innerHTML = "<h3 style='color:var(--red-accent);'>REVIEW TIME UP</h3>";
                     }
                 }
+
             }, 1000);
+
         });
     </script>
 </body>

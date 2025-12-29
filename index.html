@@ -258,7 +258,7 @@
             <li><a href="#schedule">Schedule</a></li>
             <li><a href="#team">Team</a></li>
             <li><a href="#info">Info</a></li>
-            </ul>
+        </ul>
     </nav>
 
     <section id="home" class="hero">
@@ -304,10 +304,10 @@
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--red-accent); box-shadow: 0 0 20px var(--red-accent);"></div>
 
             <h2 style="text-align:center; color: var(--red-accent); font-family: 'Orbitron'; font-size: 2rem; margin-bottom: 10px; text-transform: uppercase;">
-                ⚠️ Review 1 Deadline
+                ⚠️ Review 2 Deadline
             </h2>
             <p style="text-align:center; color: #ccc; font-size: 1.1rem; margin-bottom: 20px;">
-                Target: <strong>1:30 PM (13:30)</strong> | Phase 1 & 2 Completion
+                Target: <strong>9:00 PM (21:00)</strong> | Phase 2 Completion
             </p>
 
             <div class="timer-box" style="justify-content:center; margin: 20px 0;">
@@ -323,8 +323,8 @@
             </div>
 
             <div style="text-align: center; margin-top: 30px;">
-                <a href="https://forms.gle/fLkTV8xTtWD6ka5h6" target="_blank" class="reg-btn" style="background: linear-gradient(90deg, #ff0000, #ff5e00); box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); padding: 15px 40px; font-size: 1.1rem; text-decoration: none;">
-                    📤 Submit Review 1
+                <a id="review-btn" href="https://forms.gle/fLkTV8xTtWD6ka5h6" target="_blank" class="reg-btn" style="background: linear-gradient(90deg, #ff0000, #ff5e00); box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); padding: 15px 40px; font-size: 1.1rem; text-decoration: none; transition: 0.3s all;">
+                    Submit Review 2
                 </a>
             </div>
         </div>
@@ -589,32 +589,31 @@
                 });
             }
 
-            /* --- 3. DUAL TIMERS (ELAPSED & REVIEW) --- */
+            /* --- 3. DUAL TIMERS & FORM LOGIC --- */
             
             // CONFIGURATION
-            // 1. Start Time: Dec 29, 10:30 AM
             const startDate = new Date("Dec 29, 2025 10:30:00").getTime();
             
-            // 2. Review 1 Time: Dec 29, 1:30 PM (13:30)
-            const reviewDate = new Date("Dec 29, 2025 13:30:00").getTime();
+            // Form Open Time: 4:00 PM (16:00)
+            const formOpenDate = new Date("Dec 29, 2025 16:00:00").getTime();
+            
+            // Form Close/Review Deadline: 9:00 PM (21:00)
+            const formCloseDate = new Date("Dec 29, 2025 21:00:00").getTime();
+
+            const reviewBtn = document.getElementById("review-btn");
 
             const timerInterval = setInterval(function () {
                 const now = new Date().getTime();
 
                 // --- LOGIC 1: ELAPSED TIME (Hacking Time) ---
                 let elapsedDistance = now - startDate;
-                
-                // If event hasn't started yet, show 00
-                if (elapsedDistance < 0) {
-                    elapsedDistance = 0;
-                }
+                if (elapsedDistance < 0) elapsedDistance = 0;
 
                 const eDays = Math.floor(elapsedDistance / (1000 * 60 * 60 * 24));
                 const eHours = Math.floor((elapsedDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const eMins = Math.floor((elapsedDistance % (1000 * 60 * 60)) / (1000 * 60));
                 const eSecs = Math.floor((elapsedDistance % (1000 * 60)) / 1000);
 
-                // Update DOM for Elapsed
                 const elD = document.getElementById("elapsed-d");
                 if(elD) {
                     elD.innerText = eDays.toString().padStart(2, '0');
@@ -623,15 +622,14 @@
                     document.getElementById("elapsed-s").innerText = eSecs.toString().padStart(2, '0');
                 }
 
-                // --- LOGIC 2: REVIEW 1 COUNTDOWN ---
-                const reviewDistance = reviewDate - now;
+                // --- LOGIC 2: REVIEW 2 DEADLINE TIMER (Always counts to 9 PM) ---
+                const reviewDistance = formCloseDate - now;
 
                 if (reviewDistance > 0) {
                     const rHours = Math.floor((reviewDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     const rMins = Math.floor((reviewDistance % (1000 * 60 * 60)) / (1000 * 60));
                     const rSecs = Math.floor((reviewDistance % (1000 * 60)) / 1000);
 
-                    // Update DOM for Review
                     const revH = document.getElementById("rev-h");
                     if(revH) {
                         revH.innerText = rHours.toString().padStart(2, '0');
@@ -639,10 +637,31 @@
                         document.getElementById("rev-s").innerText = rSecs.toString().padStart(2, '0');
                     }
                 } else {
-                    // Review time passed
                     const revH = document.getElementById("rev-h");
                     if(revH) {
                         document.getElementById("rev-h").parentElement.parentElement.innerHTML = "<h3 style='color:var(--red-accent);'>REVIEW TIME UP</h3>";
+                    }
+                }
+
+                // --- LOGIC 3: BUTTON STATE MANAGEMENT ---
+                if (reviewBtn) {
+                    if (now < formOpenDate) {
+                        // BEFORE 4 PM: Button Disabled
+                        reviewBtn.style.pointerEvents = "none";
+                        reviewBtn.style.opacity = "0.5";
+                        reviewBtn.style.background = "#555";
+                        reviewBtn.style.boxShadow = "none";
+                        reviewBtn.innerText = "Form Opens at 4:00 PM";
+                    } else if (now >= formOpenDate && now < formCloseDate) {
+                        // BETWEEN 4 PM and 9 PM: Button Active
+                        reviewBtn.style.pointerEvents = "auto";
+                        reviewBtn.style.opacity = "1";
+                        reviewBtn.style.background = "linear-gradient(90deg, #ff0000, #ff5e00)";
+                        reviewBtn.style.boxShadow = "0 0 20px rgba(255, 0, 0, 0.4)";
+                        reviewBtn.innerText = "📤 Submit Review 2";
+                    } else {
+                        // AFTER 9 PM: Button Hidden
+                        reviewBtn.style.display = "none";
                     }
                 }
 

@@ -307,14 +307,14 @@
 
             <!-- TITLE UPDATED FOR PHASE 3 -->
             <h2 style="text-align:center; color: #fff; font-family: 'Orbitron'; font-size: 2rem; margin-bottom: 5px; text-transform: uppercase;">
-                🚀 Get Ready for Phase 3
+                🚀 Phase 3 is Live
             </h2>
             <h3 style="text-align:center; color: var(--primary); font-family: 'Orbitron'; font-size: 1.5rem; margin-bottom: 20px;">
-                Intelligence
+                Intelligence & Modeling
             </h3>
             
             <p style="text-align:center; color: #ccc; font-size: 1.1rem; margin-bottom: 30px;">
-                Deadline Target: <strong>Dec 30th, 11:30 AM</strong> (Day 2 Morning)
+                Deadline Target: <strong>Dec 30th, 01:00 PM</strong> (Day 2)
             </p>
 
             <!-- FLEX CONTAINER FOR TIMER & REQUIREMENTS -->
@@ -341,22 +341,27 @@
                     <h3 style="color: var(--primary); font-family: 'Orbitron'; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; font-size: 1.2rem;">Phase 3 Requirements</h3>
                     <ul style="color: #ddd; list-style: none; padding: 0; line-height: 1.5; text-align: left; font-size: 0.95rem;">
                         <li style="margin-bottom: 15px;">
-                            <strong style="color: #fff; font-size: 1rem; display:block; margin-bottom:5px;">1. Advanced Preprocessing</strong>
-                            <span style="color: #aaa;">(Feature Engineering & Cleaning)</span>
-                            <ul style="list-style: none; padding-left: 10px; margin-top: 8px; border-left: 2px solid rgba(255,255,255,0.1);">
-                                <li style="margin-bottom: 5px;">Handle missing values, outliers, and scaling.</li>
-                                <li style="margin-bottom: 5px;">Feature selection and transformation.</li>
+                            <strong style="color: #fff; font-size: 1rem; display:block; margin-bottom:5px;">1. Core Intelligence</strong>
+                            <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 2px solid rgba(255,255,255,0.1);">
+                                <li>Advanced Preprocessing.</li>
+                                <li>ML Model Development.</li>
+                                <li>Fine-Tuning & Hyperparameter Optimization.</li>
                             </ul>
                         </li>
                         <li style="margin-bottom: 15px;">
-                            <strong style="color: #fff; font-size: 1rem;">2. ML Model Development</strong><br>
-                            <span style="color: #aaa;">(The Core Intelligence)</span>
-                            <p style="margin-top:5px; font-size: 0.9rem;">Train your algorithms using the prepared datasets.</p>
+                            <strong style="color: #fff; font-size: 1rem; display:block; margin-bottom:5px;">2. Submission Format</strong>
+                            <span style="color: #aaa;">Submit <strong>PDF</strong> of Jupyter/Colab Notebook.</span>
+                            <div style="margin-top: 5px; font-size: 0.85rem; color: #ff9d00;">
+                                Note: Ensure all code, outputs, and results are clearly visible in the PDF.
+                            </div>
                         </li>
                         <li>
-                            <strong style="color: #fff; font-size: 1rem;">3. Optimization</strong><br>
-                            <span style="color: #aaa;">(Fine-tuning & Hyperparameters)</span>
-                            <p style="margin-top:5px; font-size: 0.9rem;">Optimize model performance (GridSearch, RandomSearch, etc).</p>
+                            <strong style="color: #fff; font-size: 1rem;">3. PDF Must Contain:</strong>
+                            <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 2px solid rgba(255,255,255,0.1);">
+                                <li>Model training script.</li>
+                                <li>Hyperparameter tuning script (Grid Search / Random Search, if used).</li>
+                                <li>Model testing & evaluation script.</li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -365,11 +370,10 @@
 
             <!-- BUTTON CONTAINER -->
             <div style="text-align: center; margin-top: 40px;">
-                <!-- Link kept for Phase 2 as requested -->
-                <a id="review-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeY3ryXvUEy7U09vNs0HkDoa5eA2ZRXU170U8Frk2vTk1lWsA/viewform?usp=sharing&ouid=108673084497758507572" target="_blank" class="reg-btn" style="background: linear-gradient(90deg, #ff0000, #ff5e00); box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); padding: 15px 40px; font-size: 1.1rem; text-decoration: none; transition: 0.3s all;">
-                    Submit Phase 2
+                <a id="review-btn" href="https://forms.gle/FUFTLEUyzeWHks9Y6" target="_blank" class="reg-btn" style="background: linear-gradient(90deg, #ff0000, #ff5e00); box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); padding: 15px 40px; font-size: 1.1rem; text-decoration: none; transition: 0.3s all;">
+                    Submit Phase 3
                 </a>
-                <p style="margin-top: 15px; color: #888; font-size: 0.8rem;">(If you haven't submitted yet)</p>
+                <p style="margin-top: 15px; color: #888; font-size: 0.8rem;">(Submit PDF of .ipynb)</p>
             </div>
         </div>
     </section>
@@ -641,8 +645,8 @@
             
             // PHASE 3 LOGIC
             // Form is active now.
-            // Target for Phase 3 Countdown (Dec 30th, 11:30 AM)
-            const phase3TargetDate = new Date("Dec 30, 2025 11:30:00").getTime();
+            // Target for Phase 3 Countdown (Dec 30th, 1:00 PM)
+            const phase3TargetDate = new Date("Dec 30, 2025 13:00:00").getTime();
 
             const reviewBtn = document.getElementById("review-btn");
 
@@ -688,7 +692,6 @@
                 }
 
                 // --- LOGIC 3: BUTTON STATE MANAGEMENT ---
-                // For this phase, we always keep the button active for late Phase 2 submissions
                 if (reviewBtn) {
                      reviewBtn.style.pointerEvents = "auto";
                      reviewBtn.style.opacity = "1";

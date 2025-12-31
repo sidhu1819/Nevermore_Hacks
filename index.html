@@ -15,6 +15,7 @@
             --bg-dark: #050510;
             --glass: rgba(255, 255, 255, 0.05);
             --border: rgba(255, 255, 255, 0.1);
+            --success: #00ff88; /* Green for success */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -289,8 +290,8 @@
         <h1 class="title">Live Status</h1>
 
         <div style="margin-bottom: 50px;">
-            <h2 style="text-align:center; color: var(--primary); font-family: 'Orbitron'; font-size: 1.8rem; text-shadow: 0 0 10px rgba(0,242,255,0.3);">
-                Hacking Time Elapsed
+            <h2 id="timer-title" style="text-align:center; color: var(--primary); font-family: 'Orbitron'; font-size: 1.8rem; text-shadow: 0 0 10px rgba(0,242,255,0.3);">
+                Event Runtime
             </h2>
             <div class="timer-box" style="justify-content:center;">
                 <div class="time-unit"><span id="elapsed-d">00</span>Days</div>
@@ -300,74 +301,52 @@
             </div>
         </div>
 
-        <div style="border: 1px solid var(--secondary); background: rgba(112, 0, 255, 0.05); border-radius: 15px; padding: 30px; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--secondary); box-shadow: 0 0 20px var(--secondary);"></div>
+        <div style="border: 1px solid var(--success); background: rgba(0, 255, 136, 0.05); border-radius: 15px; padding: 30px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--success); box-shadow: 0 0 20px var(--success);"></div>
 
             <h2 style="text-align:center; color: #fff; font-family: 'Orbitron'; font-size: 2rem; margin-bottom: 5px; text-transform: uppercase;">
-                🚀 Phase 4 is Live
+                🎓 Phase 5 is Live
             </h2>
-            <h3 style="text-align:center; color: var(--primary); font-family: 'Orbitron'; font-size: 1.5rem; margin-bottom: 20px;">
-                Deployment & Deliverables
+            <h3 style="text-align:center; color: var(--success); font-family: 'Orbitron'; font-size: 1.5rem; margin-bottom: 20px;">
+                Reviews & Certification
             </h3>
             
             <p style="text-align:center; color: #ccc; font-size: 1.1rem; margin-bottom: 30px;">
-                Deadline Target: <strong>Dec 30th, 12:00 AM</strong> (Midnight)
+                The Hackathon Development Phase has concluded.
             </p>
 
-            <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; align-items: flex-start;">
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; align-items: stretch;">
                 
-                <div style="flex: 1; min-width: 300px; text-align: center; padding-top: 20px;">
-                    <h3 style="color: #fff; font-family: 'Orbitron'; margin-bottom: 15px;">Phase 4 Deadline In</h3>
-                    <div class="timer-box" style="justify-content:center; margin: 0;">
-                        <div class="time-unit" style="border-color: var(--secondary); color: var(--secondary);">
-                            <span id="rev-h" style="color: var(--secondary);">00</span>Hours
-                        </div>
-                        <div class="time-unit" style="border-color: var(--secondary); color: var(--secondary);">
-                            <span id="rev-m" style="color: var(--secondary);">00</span>Mins
-                        </div>
-                        <div class="time-unit" style="border-color: var(--secondary); color: var(--secondary);">
-                            <span id="rev-s" style="color: var(--secondary);">00</span>Secs
-                        </div>
+                <div style="flex: 1; min-width: 300px; background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 10px; border-left: 3px solid var(--primary);">
+                    <h3 style="color: var(--primary); font-family: 'Orbitron'; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; font-size: 1.2rem;">
+                        ✅ E-Certificates
+                    </h3>
+                    <div style="text-align: center; padding: 10px;">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 10px;">📩</span>
+                        <p style="color: #fff; font-size: 1.1rem; font-weight: bold;">Will be send to Your Email soon</p>
+                        <p style="color: #aaa; margin-top: 5px; line-height: 1.5;">
+                            Participation and Merit certificates have been dispatched to all registered email addresses.
+                        </p>
                     </div>
                 </div>
 
-                <div style="flex: 1.2; min-width: 320px; background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 10px; border-left: 3px solid var(--primary);">
-                    <h3 style="color: var(--primary); font-family: 'Orbitron'; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; font-size: 1.2rem;">Phase 4 Requirements</h3>
-                    <ul style="color: #ddd; list-style: none; padding: 0; line-height: 1.5; text-align: left; font-size: 0.95rem;">
-                        <li style="margin-bottom: 15px;">
-                            <strong style="color: #fff; font-size: 1rem; display:block; margin-bottom:5px;">1. Version Control</strong>
-                            <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 2px solid rgba(255,255,255,0.1);">
-                                <li>Push all code to a <strong>GitHub Repository</strong>.</li>
-                                <li>Ensure the repository is <strong>Public</strong>.</li>
-                                <li>Include a README.md with project details.</li>
-                            </ul>
-                        </li>
-                        <li style="margin-bottom: 15px;">
-                            <strong style="color: #fff; font-size: 1rem; display:block; margin-bottom:5px;">2. Deployment</strong>
-                            <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 2px solid rgba(255,255,255,0.1);">
-                                <li>Deploy your model/app to a live server.</li>
-                                <li>Recommended: Streamlit Cloud, Render, Vercel, or Ngrok.</li>
-                                <li>Generate a working <strong>Live Link</strong>.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong style="color: #fff; font-size: 1rem;">3. Submission:</strong>
-                            <span style="color: #aaa; display:block; margin-top:5px;">Submit the Form with:</span>
-                            <ul style="list-style: none; padding-left: 10px; margin-top: 5px;">
-                                <li>GitHub Repo Link.</li>
-                                <li>Live Hosted Link.</li>
-                            </ul>
-                        </li>
-                    </ul>
+                <div style="flex: 1; min-width: 300px; background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 10px; border-left: 3px solid var(--secondary);">
+                    <h3 style="color: var(--secondary); font-family: 'Orbitron'; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; font-size: 1.2rem;">
+                        📝 Project Reviews
+                    </h3>
+                    <div style="text-align: center; padding: 10px;">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 10px;">📊</span>
+                        <p style="color: #fff; font-size: 1.1rem; font-weight: bold;">Feedback Incoming</p>
+                        <p style="color: #aaa; margin-top: 5px; line-height: 1.5;">
+                            Detailed project reviews and feedback will be sent to your mails shortly.
+                        </p>
+                    </div>
                 </div>
 
             </div>
 
             <div style="text-align: center; margin-top: 40px;">
-                <a id="review-btn" href="https://forms.gle/88tLjUhUNZNuaTKAA" target="_blank" class="reg-btn" style="background: linear-gradient(90deg, #ff0000, #ff5e00); box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); padding: 15px 40px; font-size: 1.1rem; text-decoration: none; transition: 0.3s all;">
-                    Submit Phase 4
-                </a>
-                <p style="margin-top: 15px; color: #888; font-size: 0.8rem;">(Submit Links)</p>
+                 <p style="color: #888; font-size: 0.9rem;">Thank you for participating in LUMINEX 2K26</p>
             </div>
         </div>
     </section>
@@ -437,23 +416,23 @@
                     <li>Fine-tuning & Hyperparameter optimization</li>
                 </ul>
             </div>
-            <div class="phase-card" style="border-color: var(--primary); background: rgba(0, 242, 255, 0.05);">
-                <span class="day-tag" style="background: var(--primary);">Day 2 • Afternoon (ACTIVE)</span>
-                <h3 style="color: #fff;">Phase 4: Deployment</h3>
+            <div class="phase-card">
+                <span class="day-tag">Day 2 • Afternoon</span>
+                <h3>Phase 4: Deployment</h3>
                 <ul class="phase-list">
                     <li>Create GitHub Repository</li>
                     <li>Deployment (Streamlit, Vercel, Render, etc.)</li>
                     <li>Generate Live Server Link</li>
                 </ul>
             </div>
-            <div class="phase-card">
-                <span class="day-tag">Day 3 • Finals</span>
-                <h3>Phase 5: The Review</h3>
-                <p style="color:#aaa; margin-bottom:10px;">(Only for shortlisted teams)</p>
+            <div class="phase-card" style="border-color: var(--success); background: rgba(0, 255, 136, 0.05);">
+                <span class="day-tag" style="background: var(--success);">Day 3 • Finals (ACTIVE)</span>
+                <h3 style="color: #fff;">Phase 5: The Review</h3>
+                <p style="color: var(--success); margin-bottom:10px; font-weight: bold;">(All Participants)</p>
                 <ul class="phase-list">
-                    <li>Present project to review panel</li>
-                    <li>Presentation must contain PPT</li>
-                    <li>Demonstrate Live Web App / Native Application</li>
+                    <li>E-Certificates Distribution</li>
+                    <li>Project Review & Feedback</li>
+                    <li>Closing Ceremony</li>
                 </ul>
             </div>
         </div>
@@ -631,22 +610,25 @@
                 });
             }
 
-            /* --- 3. DUAL TIMERS & FORM LOGIC --- */
+            /* --- 3. EVENT TIMER ONLY --- */
             
             // CONFIGURATION
             const startDate = new Date("Dec 29, 2025 10:30:00").getTime();
+            const eventDuration = 48 * 60 * 60 * 1000; // 48 Hours in milliseconds
             
-            // PHASE 4 LOGIC
-            // Target for Phase 4 Deadline: Midnight Dec 30th (Start of Dec 31st)
-            const phase4TargetDate = new Date("Dec 31, 2025 00:00:00").getTime();
-
-            const reviewBtn = document.getElementById("review-btn");
-
             const timerInterval = setInterval(function () {
                 const now = new Date().getTime();
 
                 // --- LOGIC 1: ELAPSED TIME (Hacking Time) ---
                 let elapsedDistance = now - startDate;
+                let isEnded = false;
+
+                // Stop at 48 hours
+                if (elapsedDistance >= eventDuration) {
+                    elapsedDistance = eventDuration;
+                    isEnded = true;
+                }
+
                 if (elapsedDistance < 0) elapsedDistance = 0;
 
                 const eDays = Math.floor(elapsedDistance / (1000 * 60 * 60 * 24));
@@ -662,31 +644,10 @@
                     document.getElementById("elapsed-s").innerText = eSecs.toString().padStart(2, '0');
                 }
 
-                // --- LOGIC 2: PHASE 4 DEADLINE TIMER ---
-                const reviewDistance = phase4TargetDate - now;
-
-                if (reviewDistance > 0) {
-                    const rHours = Math.floor((reviewDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const rMins = Math.floor((reviewDistance % (1000 * 60 * 60)) / (1000 * 60));
-                    const rSecs = Math.floor((reviewDistance % (1000 * 60)) / 1000);
-
-                    const revH = document.getElementById("rev-h");
-                    if(revH) {
-                        revH.innerText = rHours.toString().padStart(2, '0');
-                        document.getElementById("rev-m").innerText = rMins.toString().padStart(2, '0');
-                        document.getElementById("rev-s").innerText = rSecs.toString().padStart(2, '0');
-                    }
-                } else {
-                    const revH = document.getElementById("rev-h");
-                    if(revH) {
-                        document.getElementById("rev-h").parentElement.parentElement.innerHTML = "<h3 style='color:var(--red-accent);'>PHASE 4 TIME UP</h3>";
-                    }
-                }
-
-                // --- LOGIC 3: BUTTON STATE MANAGEMENT ---
-                if (reviewBtn) {
-                      reviewBtn.style.pointerEvents = "auto";
-                      reviewBtn.style.opacity = "1";
+                if (isEnded) {
+                    clearInterval(timerInterval);
+                    const title = document.getElementById("timer-title");
+                    if (title) title.innerText = "Event Concluded";
                 }
 
             }, 1000);
